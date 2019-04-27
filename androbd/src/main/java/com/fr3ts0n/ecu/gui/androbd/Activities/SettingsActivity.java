@@ -17,7 +17,7 @@
  *
  */
 
-package com.fr3ts0n.ecu.gui.androbd;
+package com.fr3ts0n.ecu.gui.androbd.Activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -32,6 +32,8 @@ import android.preference.PreferenceManager;
 import android.widget.Toast;
 
 import com.fr3ts0n.ecu.EcuDataItem;
+import com.fr3ts0n.ecu.gui.androbd.R;
+import com.fr3ts0n.ecu.gui.androbd.Services.CommService;
 import com.fr3ts0n.ecu.prot.obd.ElmProt;
 import com.fr3ts0n.ecu.prot.obd.ObdProt;
 

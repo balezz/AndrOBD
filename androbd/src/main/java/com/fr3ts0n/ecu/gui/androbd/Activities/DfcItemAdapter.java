@@ -16,14 +16,17 @@
  * MA 02111-1307 USA
  */
 
-package com.fr3ts0n.ecu.gui.androbd;
+package com.fr3ts0n.ecu.gui.androbd.Activities;
 
 import android.content.Context;
+import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.fr3ts0n.ecu.EcuCodeItem;
+import com.fr3ts0n.ecu.gui.androbd.Activities.ObdItemAdapter;
+import com.fr3ts0n.ecu.gui.androbd.R;
 import com.fr3ts0n.pvs.IndexedProcessVar;
 import com.fr3ts0n.pvs.PvList;
 
@@ -49,7 +52,7 @@ public class DfcItemAdapter extends ObdItemAdapter
 	}
 
 	/* (non-Javadoc)
-	 * @see com.fr3ts0n.ecu.gui.androbd.ObdItemAdapter#getView(int, android.view.View, android.view.ViewGroup)
+	 * @see com.fr3ts0n.ecu.gui.androbd.Activities.ObdItemAdapter#getView(int, android.view.View, android.view.ViewGroup)
 	 */
 	@Override
 	public View getView(int position, View v, ViewGroup parent)
@@ -64,14 +67,16 @@ public class DfcItemAdapter extends ObdItemAdapter
 		TextView tvDescr = v.findViewById(R.id.obd_label);
 		TextView tvValue = v.findViewById(R.id.obd_units);
 
-		tvValue.setText(String.valueOf(Objects.requireNonNull(currPv).get(EcuCodeItem.FID_CODE)));
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+			tvValue.setText(String.valueOf(Objects.requireNonNull(currPv).get(EcuCodeItem.FID_CODE)));
+		}
 		tvDescr.setText(String.valueOf(currPv.get(EcuCodeItem.FID_DESCRIPT)));
 
 		return v;
 	}
 
 	/* (non-Javadoc)
-	 * @see com.fr3ts0n.ecu.gui.androbd.ObdItemAdapter#getView(int, android.view.View, android.view.ViewGroup)
+	 * @see com.fr3ts0n.ecu.gui.androbd.Activities.ObdItemAdapter#getView(int, android.view.View, android.view.ViewGroup)
 	 */
 	@Override
 	public View getDropDownView(int position, View v, ViewGroup parent)

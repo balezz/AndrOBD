@@ -16,7 +16,7 @@
  * MA 02111-1307 USA
  */
 
-package com.fr3ts0n.ecu.gui.androbd;
+package com.fr3ts0n.ecu.gui.androbd.Activities;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
@@ -29,6 +29,8 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.fr3ts0n.ecu.gui.androbd.R;
 
 import java.util.Set;
 import java.util.logging.Level;

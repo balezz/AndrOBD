@@ -16,10 +16,11 @@
  * MA 02111-1307 USA
  */
 
-package com.fr3ts0n.ecu.gui.androbd;
+package com.fr3ts0n.ecu.gui.androbd.Activities;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -30,6 +31,7 @@ import android.widget.GridView;
 import android.widget.ListAdapter;
 
 import com.fr3ts0n.ecu.EcuDataPv;
+import com.fr3ts0n.ecu.gui.androbd.R;
 import com.fr3ts0n.ecu.prot.obd.ObdProt;
 
 import java.util.HashSet;
@@ -152,8 +154,10 @@ public class DashBoardActivity extends Activity
 
 		// prevent activity from falling asleep
 		PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
-		wakeLock = Objects.requireNonNull(powerManager).newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
-			getString(R.string.app_name));
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+			wakeLock = Objects.requireNonNull(powerManager).newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
+				getString(R.string.app_name));
+		}
 		wakeLock.acquire();
 
 		/* get PIDs to be shown */

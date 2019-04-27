@@ -16,7 +16,7 @@
  * MA 02111-1307 USA
  */
 
-package com.fr3ts0n.ecu.gui.androbd;
+package com.fr3ts0n.ecu.gui.androbd.Activities;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -29,6 +29,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.fr3ts0n.ecu.EcuDataPv;
+import com.fr3ts0n.ecu.gui.androbd.R;
 import com.fr3ts0n.pvs.ProcessVar;
 import com.fr3ts0n.pvs.PvChangeEvent;
 import com.fr3ts0n.pvs.PvChangeListener;

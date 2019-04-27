@@ -17,7 +17,7 @@
  *
  */
 
-package com.fr3ts0n.ecu.gui.androbd;
+package com.fr3ts0n.ecu.gui.androbd.Activities;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -27,13 +27,15 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 
+import com.fr3ts0n.ecu.gui.androbd.Activities.MainActivity;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
 /**
  * Automatically hide components after timeout and show again on touch action
  */
-class AutoHider
+public class AutoHider
 	extends TimerTask
 	implements OnTouchListener
 {
@@ -54,9 +56,9 @@ class AutoHider
 	 * @param handler activity's message handler
 	 * @param hideDelayTime delay time[ms] before component gets hidden
 	 */
-	AutoHider(Activity activity,
-	          Handler handler,
-	          long hideDelayTime)
+	public AutoHider(Activity activity,
+					 Handler handler,
+					 long hideDelayTime)
 	{
 		TB_HIDE_DELAY = hideDelayTime;
 		mMessageId = MainActivity.MESSAGE_TOOLBAR_VISIBLE;
@@ -118,7 +120,7 @@ class AutoHider
 	/**
 	 * Show tool bar again
 	 */
-	void showComponent()
+	public void showComponent()
 	{
 		// set next hiding time
 		componentHideTime = System.currentTimeMillis() + TB_HIDE_DELAY;

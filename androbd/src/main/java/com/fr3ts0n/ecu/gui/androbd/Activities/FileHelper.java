@@ -16,7 +16,7 @@
  * MA 02111-1307 USA
  */
 
-package com.fr3ts0n.ecu.gui.androbd;
+package com.fr3ts0n.ecu.gui.androbd.Activities;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
@@ -27,6 +27,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.widget.Toast;
 
+import com.fr3ts0n.ecu.gui.androbd.R;
+import com.fr3ts0n.ecu.gui.androbd.Services.CommService;
 import com.fr3ts0n.ecu.prot.obd.ElmProt;
 import com.fr3ts0n.ecu.prot.obd.ObdProt;
 import com.fr3ts0n.pvs.PvList;

@@ -16,10 +16,11 @@
  * MA 02111-1307 USA
  */
 
-package com.fr3ts0n.ecu.gui.androbd;
+package com.fr3ts0n.ecu.gui.androbd.Activities;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -57,6 +58,11 @@ import com.fr3ts0n.ecu.EcuCodeItem;
 import com.fr3ts0n.ecu.EcuDataItem;
 import com.fr3ts0n.ecu.EcuDataItems;
 import com.fr3ts0n.ecu.EcuDataPv;
+import com.fr3ts0n.ecu.gui.androbd.R;
+import com.fr3ts0n.ecu.gui.androbd.Services.BtCommService;
+import com.fr3ts0n.ecu.gui.androbd.Services.CommService;
+import com.fr3ts0n.ecu.gui.androbd.Services.NetworkCommService;
+import com.fr3ts0n.ecu.gui.androbd.Services.UsbCommService;
 import com.fr3ts0n.ecu.prot.obd.ElmProt;
 import com.fr3ts0n.ecu.prot.obd.ObdProt;
 import com.fr3ts0n.pvs.PvChangeEvent;
@@ -82,7 +88,7 @@ import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-import static com.fr3ts0n.ecu.gui.androbd.SettingsActivity.ELM_TIMING_SELECT;
+import static com.fr3ts0n.ecu.gui.androbd.Activities.SettingsActivity.ELM_TIMING_SELECT;
 
 /**
  * Main Activity for AndrOBD app
@@ -247,7 +253,8 @@ public class MainActivity extends PluginManager
     private FileHandler logFileHandler;
 
 	/** handler for freeze frame selection */
-	private final AdapterView.OnItemSelectedListener ff_selected = new AdapterView.OnItemSelectedListener()
+	private final AdapterView.OnItemSelectedListener ff_selected =
+			new AdapterView.OnItemSelectedListener()
 	{
 		@Override
 		public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
@@ -678,8 +685,11 @@ public class MainActivity extends PluginManager
 				if (resultCode == Activity.RESULT_OK)
 				{
 					// Get the device MAC address
-					String address = Objects.requireNonNull(data.getExtras()).getString(
-						BtDeviceListActivity.EXTRA_DEVICE_ADDRESS);
+					String address = null;
+					if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+						address = Objects.requireNonNull(data.getExtras()).getString(
+							BtDeviceListActivity.EXTRA_DEVICE_ADDRESS);
+					}
 					// save reported address as last setting
 					prefs.edit().putString(PRESELECT.LAST_DEV_ADDRESS.toString(), address).apply();
 					connectBtDevice(address, secureConnection);
@@ -1790,6 +1800,7 @@ public class MainActivity extends PluginManager
 	/**
 	 * Filter display items to just the selected ones
 	 */
+	@TargetApi(Build.VERSION_CODES.KITKAT)
 	private void setFiltered(boolean filtered)
 	{
 		if (filtered)

@@ -17,7 +17,7 @@
  *
  */
 
-package com.fr3ts0n.ecu.gui.androbd;
+package com.fr3ts0n.ecu.gui.androbd.Activities;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -38,6 +38,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TwoLineListItem;
 
+import com.fr3ts0n.ecu.gui.androbd.R;
 import com.hoho.android.usbserial.driver.UsbSerialDriver;
 import com.hoho.android.usbserial.driver.UsbSerialPort;
 import com.hoho.android.usbserial.driver.UsbSerialProber;

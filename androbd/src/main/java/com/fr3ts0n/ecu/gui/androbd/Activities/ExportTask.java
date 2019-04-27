@@ -16,7 +16,7 @@
  * MA 02111-1307 USA
  */
 
-package com.fr3ts0n.ecu.gui.androbd;
+package com.fr3ts0n.ecu.gui.androbd.Activities;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -26,6 +26,8 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.widget.Toast;
+
+import com.fr3ts0n.ecu.gui.androbd.R;
 
 import org.achartengine.model.XYMultipleSeriesDataset;
 import org.achartengine.model.XYSeries;
@@ -45,7 +47,7 @@ import java.util.logging.Logger;
  *
  * @author Erwin Scheuch-Heilig
  */
-class ExportTask extends AsyncTask<XYMultipleSeriesDataset, Integer, String>
+public class ExportTask extends AsyncTask<XYMultipleSeriesDataset, Integer, String>
 {
 
 	private final Activity activity;
@@ -74,7 +76,7 @@ class ExportTask extends AsyncTask<XYMultipleSeriesDataset, Integer, String>
 	{
 		this.activity = activity;
         path = FileHelper.getPath(activity).concat(File.separator+"csv");
-		fileName = path.concat(File.separator+FileHelper.getFileName()
+		fileName = path.concat(File.separator+ FileHelper.getFileName()
                        .concat(".csv"));
 
 		// get preferences

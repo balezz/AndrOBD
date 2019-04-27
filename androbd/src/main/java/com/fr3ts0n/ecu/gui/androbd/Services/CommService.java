@@ -17,13 +17,15 @@
  *
  */
 
-package com.fr3ts0n.ecu.gui.androbd;
+package com.fr3ts0n.ecu.gui.androbd.Services;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 
+import com.fr3ts0n.ecu.gui.androbd.Activities.MainActivity;
+import com.fr3ts0n.ecu.gui.androbd.R;
 import com.fr3ts0n.ecu.prot.obd.ElmProt;
 
 import java.util.logging.Level;
@@ -43,7 +45,7 @@ public abstract class CommService
 	}
 
 	/** media type selection */
-	static MEDIUM medium = MEDIUM.BLUETOOTH;
+	public static MEDIUM medium = MEDIUM.BLUETOOTH;
 
 	/** Constants that indicate the current connection state */
 	public enum STATE

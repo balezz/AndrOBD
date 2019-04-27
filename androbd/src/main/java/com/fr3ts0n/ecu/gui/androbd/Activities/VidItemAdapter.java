@@ -16,10 +16,11 @@
  * MA 02111-1307 USA
  */
 
-package com.fr3ts0n.ecu.gui.androbd;
+package com.fr3ts0n.ecu.gui.androbd.Activities;
 
 import android.content.Context;
 
+import com.fr3ts0n.ecu.gui.androbd.Activities.ObdItemAdapter;
 import com.fr3ts0n.pvs.PvList;
 
 import java.util.Collection;
@@ -43,7 +44,7 @@ public class VidItemAdapter extends ObdItemAdapter
 	}
 
 	/* (non-Javadoc)
-	 * @see com.fr3ts0n.ecu.gui.androbd.ObdItemAdapter#getView(int, android.view.View, android.view.ViewGroup)
+	 * @see com.fr3ts0n.ecu.gui.androbd.Activities.ObdItemAdapter#getView(int, android.view.View, android.view.ViewGroup)
 	@Override
 	public View getView(int position, View v, ViewGroup parent)
 	{

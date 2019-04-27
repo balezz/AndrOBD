@@ -16,7 +16,7 @@
  * MA 02111-1307 USA
  */
 
-package com.fr3ts0n.ecu.gui.androbd;
+package com.fr3ts0n.ecu.gui.androbd.Activities;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -37,7 +37,7 @@ import java.util.logging.Logger;
  * Create a screenshot and save it to sd-card
  * Created by erwin on 10.11.14.
  */
-class Screenshot
+public class Screenshot
 {
 	private static final Logger log = Logger.getLogger(Screenshot.class.getSimpleName());
 	

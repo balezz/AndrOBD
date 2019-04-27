@@ -16,7 +16,7 @@
  * MA 02111-1307 USA
  */
 
-package com.fr3ts0n.ecu.gui.androbd;
+package com.fr3ts0n.ecu.gui.androbd.Activities;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -34,6 +34,7 @@ import com.fr3ts0n.ecu.Conversion;
 import com.fr3ts0n.ecu.EcuDataItem;
 import com.fr3ts0n.ecu.EcuDataPv;
 import com.fr3ts0n.ecu.NumericConversion;
+import com.fr3ts0n.ecu.gui.androbd.R;
 import com.fr3ts0n.ecu.prot.obd.ObdProt;
 import com.fr3ts0n.pvs.IndexedProcessVar;
 import com.fr3ts0n.pvs.PvChangeEvent;
@@ -54,7 +55,7 @@ import java.util.Set;
  *
  * @author erwin
  */
-class ObdItemAdapter extends ArrayAdapter<Object>
+public class ObdItemAdapter extends ArrayAdapter<Object>
 	implements PvChangeListener
 {
 	transient PvList pvs;
